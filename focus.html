@@ -1,0 +1,40 @@
+<html>
+  <head>
+    <style></style>
+  </head>
+<body>
+  <p> Enter your username:</p>
+  <input type="text" id="username" onfocus="userremind()" >
+  <p> Enter your password</p>
+   <input type="text" id="password" onfocus="passremind()" onBlur="alldone()">
+   <p id="output"></p>
+   <script>
+    
+     
+     var d= document.getElementById('output');
+     var dpass= document.getElementById("password");
+     var duser= document.getElementById("username");
+      dpass.value="";
+       duser.value="";
+    function userremind(){
+       d.innerHTML="Enter your password you registered with.";
+       document.getElementById("username").style.backgroundColor="red";
+        document.getElementById("password").style.backgroundColor="white";
+       
+     }
+     
+     function passremind(){
+       d.innerHTML="your 12 digit password";
+       localStorage.setItem("username",duser.value);
+       duser.style.backgroundColor="white";
+        dpass.style.backgroundColor="red";
+     }
+     
+     function alldone(){
+       localStorage.setItem("password",dpass.value);
+      
+       location.href="period6.html"
+     }
+   </script>
+</body>
+</html>
